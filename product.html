@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品詳情 | L'Essence Fragrance</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="image-fixer.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="images/logo.svg" alt="L'Essence"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">品牌故事</a></li>
+                <li><a href="perfume.html">香水</a></li>
+                <li><a href="home-fragrance.html">居家香氛</a></li>
+                <li><a href="candles.html">香氛蠟燭</a></li>
+                <li><a href="diffusers.html">擴香</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="product-content">
+        <!-- Content injected by JS -->
+    </div>
+
+    <footer>
+        <div class="footer-bottom">
+            &copy; 2026 L'Essence Fragrance. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+        const product = products.find(p => p.id === productId);
+
+        if (product) {
+            document.title = `${product.name} | L'Essence`;
+            const categoryMap = {
+                'perfume': '高級香水',
+                'home-fragrance': '居家香氛',
+                'candles': '香氛蠟燭',
+                'diffusers': '藝術擴香'
+            };
+            const content = document.getElementById('product-content');
+            content.innerHTML = `
+                <div class="product-detail">
+                    <div class="detail-image">
+                        <img src="${product.image}" alt="${product.name}" style="width:100%;">
+                    </div>
+                    <div class="detail-info">
+                        <div class="product-category">${categoryMap[product.category] || product.category}</div>
+                        <h1>${product.name}</h1>
+                        <div class="detail-price">${product.price}</div>
+                        <p class="detail-desc">${product.description}</p>
+                        <button class="buy-btn">立即購買</button>
+                    </div>
+                </div>
+            `;
+        } else {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

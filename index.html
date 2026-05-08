@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Essence Fragrance | 質感香氛選物</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="image-fixer.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="images/logo.svg" alt="L'Essence"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">品牌故事</a></li>
+                <li><a href="perfume.html">香水</a></li>
+                <li><a href="home-fragrance.html">居家香氛</a></li>
+                <li><a href="candles.html">香氛蠟燭</a></li>
+                <li><a href="diffusers.html">擴香</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>嗅覺的藝術</h1>
+        <p>捕捉自然的靈魂，將記憶裝進瓶中。探索屬於您的專屬香氣。</p>
+        <a href="perfume.html" class="btn">探索系列</a>
+    </section>
+
+    <div class="container">
+        <div class="section-title">
+            <h2>精選香氛</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="product-grid" id="featured-products"></div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>L'Essence</h3>
+                <p>純淨、優雅、自然的香氛美學。我們相信每一種氣味都是一段故事。</p>
+            </div>
+            <div class="footer-section">
+                <h3>系列分類</h3>
+                <ul>
+                    <li><a href="perfume.html">高級香水</a></li>
+                    <li><a href="candles.html">大豆蠟燭</a></li>
+                    <li><a href="diffusers.html">空間擴香</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>店鋪資訊</h3>
+                <p>台北市大安區香氛路 8 號</p>
+                <p>hello@lessence.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 L'Essence Fragrance. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script>
+        const grid = document.getElementById('featured-products');
+        const categoryMap = {
+            'perfume': '高級香水',
+            'home-fragrance': '居家香氛',
+            'candles': '香氛蠟燭',
+            'diffusers': '藝術擴香'
+        };
+        products.slice(0, 8).forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <a href="product.html?id=${product.id}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${categoryMap[product.category] || product.category}</div>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price}</div>
+                    </div>
+                </a>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

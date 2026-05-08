@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 | L'Essence Fragrance</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; padding: 5rem 10%; }
+        .form input, .form textarea { width: 100%; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #ddd; background: #fff; }
+        .form button { padding: 1.2rem 4rem; background: var(--primary-color); color: #fff; border: none; cursor: pointer; }
+    </style>
+    <script src="image-fixer.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="images/logo.svg" alt="L'Essence"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">品牌故事</a></li>
+                <li><a href="perfume.html">香水</a></li>
+                <li><a href="home-fragrance.html">居家香氛</a></li>
+                <li><a href="candles.html">香氛蠟燭</a></li>
+                <li><a href="diffusers.html">擴香</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contact-grid">
+        <div class="info">
+            <h2>預約聞香體驗</h2>
+            <p>如果您想親自體驗 L'Essence 的香氛魅力，歡迎預約我們的實體工作室參觀。</p>
+            <p style="margin-top: 2rem;">📍 台北市大安區香氛路 8 號</p>
+            <p>📞 02-1234-5678</p>
+            <p>✉️ service@lessence.com</p>
+        </div>
+        <div class="form">
+            <form>
+                <input type="text" placeholder="姓名" required>
+                <input type="email" placeholder="電子郵件" required>
+                <textarea rows="5" placeholder="留言訊息" required></textarea>
+                <button type="submit">發送訊息</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
